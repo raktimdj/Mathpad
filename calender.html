@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Calendar</title>
+</head>
+
+ <!-- Top Section with Logo and Heading -->
+ <div class="top-section">
+    <img src="Raktim's Calculator & Notepad Logo.png" alt="Raktim Pramanik's and Notepad (Mathpad App)" class="logo">
+    <h1>Raktim Pramanik's (Mathpad Calender)</h1>
+</div>
+<style>
+    /* Heading with logo */
+
+.top-section {
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Align to the left of the viewport */
+    padding: 20px;
+    text-align: center;
+    justify-content: space-between; /* Distribute items to the left and right */
+    align-items: center; /* Vertically center items */
+}
+
+.logo {
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+}
+
+h1 {
+    color: #fff;
+    font-size: 24px;
+    margin: 0; /* Remove margin to prevent extra spacing */
+}
+
+</style>
+
+<body>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button id="prevYear">Previous Year</button>
+            <h2 id="currentYear">Year 2000</h2>
+            <button id="nextYear">Next Year</button>
+        </div>
+        <div class="calendar-body" id="calendarBody">
+            <!-- Calendar will be generated here using JavaScript -->
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #6100c2;
+            margin: 0;
+        }
+        .calendar {
+            max-width: 1200px; /* Increased width */
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #000000;
+            color: #fff;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            padding: 10px;
+        }
+        .calendar-header button {
+            background-color: #ff7700;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .calendar-header button:hover {
+            background-color: #ffbb00;
+        }
+        .calendar-body {
+            background-color: #000000;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .calendar-month {
+            text-align: center;
+            background-color: #ff7300;
+            color: #fff;
+            padding: 5px;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 1px;
+            margin: 10px;
+        }
+        .calendar-day {
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            background-color: #000000;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .calendar-day:hover {
+            background-color: #1f1f1f;
+        }
+    </style>
+    <script>
+         const calendarBody = document.getElementById('calendarBody');
+        const currentYearElement = document.getElementById('currentYear');
+        const prevYearButton = document.getElementById('prevYear');
+        const nextYearButton = document.getElementById('nextYear');
+        let currentYear = 2000;
+
+        // Function to update the calendar for a given year
+        function updateCalendar(year) {
+            currentYearElement.textContent = `Year ${year}`;
+            calendarBody.innerHTML = '';
+
+            // Create a Date object for January 1st of the selected year
+            const startDate = new Date(year, 0, 1);
+
+            for (let month = 0; month < 12; month++) {
+                const monthName = new Date(startDate.getFullYear(), month, 1).toLocaleString('default', { month: 'long' });
+                const daysInMonth = new Date(startDate.getFullYear(), month + 1, 0).getDate();
+
+                const monthHeader = document.createElement('div');
+                monthHeader.textContent = monthName;
+                monthHeader.classList.add('calendar-month');
+                calendarBody.appendChild(monthHeader);
+
+                const monthGrid = document.createElement('div');
+                monthGrid.classList.add('calendar-grid');
+
+                const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                for (const label of dayLabels) {
+                    const labelElement = document.createElement('div');
+                    labelElement.textContent = label;
+                    labelElement.classList.add('calendar-day');
+                    labelElement.style.backgroundColor = '#007BFF';
+                    labelElement.style.color = '#fff';
+                    monthGrid.appendChild(labelElement);
+                }
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.textContent = day;
+                    dayElement.classList.add('calendar-day');
+                    monthGrid.appendChild(dayElement);
+                }
+
+                calendarBody.appendChild(monthGrid);
+            }
+        }
+
+        // Initial calendar render
+        updateCalendar(currentYear);
+
+        // Button click event handlers
+        prevYearButton.addEventListener('click', () => {
+            currentYear -= 1;
+            updateCalendar(currentYear);
+        });
+
+        nextYearButton.addEventListener('click', () => {
+            currentYear += 1;
+            updateCalendar(currentYear);
+        });
+    </script>
+</body>
+</html>

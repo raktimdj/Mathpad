@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raktim Pramanik's Calculator & Notepad (Mathpad App)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Digital Clock -->
+    <div class="clock">
+        <div id="time">12:00:00</div>
+    </div>
+
+    <style>
+.clock {
+    background-color: #202020;
+    border: 10px solid #444;
+    margin-right: 50px;
+    border-radius: 5px;
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Align to the left of the viewport */
+    padding: 20px;
+    text-align: center;
+    justify-content: space-between; /* Distribute items to the left and right */
+    align-items: center; /* Vertically center items */
+}
+
+#time {
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+    </style>
+
+    <script>
+        function updateClock() {
+        const timeElement = document.getElementById("time");
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        timeElement.textContent = timeString;
+    }
+    
+    updateClock(); // Call the function immediately to display the time
+    setInterval(updateClock, 1000); // Update the time every second
+    </script>
+
+    <!-- Video -->
+
+    <video autoplay muted loop>
+        <source src="circuit.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Video css -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+
+     <!-- Top Section with Logo and Heading -->
+     <div class="top-section">
+        <img src="Raktim's Calculator & Notepad Logo.png" alt="Raktim Pramanik's and Notepad (Mathpad App)" class="logo">
+        <h1>Raktim Pramanik's Calculator & Notepad (Mathpad App)</h1>
+    </div>
+
+    <!--Calculator & Notepad, Copy, Whatsapp, Telegram, Print-->
+    <div class="calculator">
+        <div class="notepad">
+            <h2>Notepad</h2>
+            <textarea placeholder="Write notes here"></textarea>
+            <button id="copyButton">Copy</button> <!-- Add this button -->
+            <div class="whatsapp-button">
+                <a href="https://web.whatsapp.com/" target="_blank">Share to WhatsApp</a>
+            </div>
+            <div class="telegram-button">
+                <a href="https://web.telegram.org/k/" target="_blank">Share to Telegram</a>
+            </div>
+            <button id="printButton">Print</button>
+            
+        </div>
+
+        <div class="calculator-panel">
+            <div class="display">
+                <input type="text" id="display" required placeholder="Enter the numbers here">
+            </div>
+            <div class="buttons">
+                <button class="red" id="reset">Reset</button>
+                <button id="clear">C</button>
+                <button data-value="1">1</button>
+                <button data-value="2">2</button>
+                <button data-value="3">3</button>
+                <button data-value="4">4</button>
+                <button data-value="5">5</button>
+                <button data-value="6">6</button>
+                <button data-value="7">7</button>
+                <button data-value="8">8</button>
+                <button data-value="9">9</button>
+                <button data-value="0">0</button>
+                <button data-value="*">*</button>
+                <button data-value="/">/</button>
+                <button data-value="+">+</button>
+                <button data-value="-">-</button>
+                <button data-value=".">.</button>
+                <button id="calculate">=</button>
+                
+                <button class="backspace" id="backspace">⌫</button>
+                
+            </div>
+        </div>
+    </div>
+
+       <!-- History Section -->
+       <div class="history">
+        <h2>Calculation History :</h2>
+        <ul id="history-list">
+            <!-- History items will be added here dynamically using JavaScript -->
+        </ul>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+
+    <!-- Mathpad Calender-->
+   
+         <div class="btn-container">
+            <a href="calender.html" class="btn-link">Mathpad Calendar</a>
+        </div>
+
+        <style>
+             .btn-container {
+            margin: 20px;
+        }
+        .btn-link {
+            position: absolute;
+            top: 700px;
+            left: 340px;
+            background-color: #ff4400;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-link:hover {
+            background-color: #ec8a00;
+        }
+        </style>
+
+        <script>
+              // JavaScript to navigate to another page when the button is clicked
+        const goToAnotherPageButton = document.getElementById('goToAnotherPage');
+        goToAnotherPageButton.addEventListener('click', function() {
+            // Replace 'another-page.html' with the URL of the desired page
+            window.location.href = 'another-page.html';
+        });
+        </script>
+</body>
+</html>

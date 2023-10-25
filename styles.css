@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(45, 159, 197, 0.8);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Heading with logo */
+
+.top-section {
+    background-color: #202020;
+    border: 10px solid #444;
+    margin-right: 50px;
+    border-radius: 5px;
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Align to the left of the viewport */
+    padding: 20px;
+    text-align: center;
+    justify-content: space-between; /* Distribute items to the left and right */
+    align-items: center; /* Vertically center items */
+}
+
+.logo {
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+}
+
+h1 {
+    color: #fff;
+    font-size: 24px;
+    margin: 0; /* Remove margin to prevent extra spacing */
+}
+
+.calculator {
+    margin-right: 50px;
+    background-color: #202020;
+    border: 10px solid #444;
+    border-radius: 10px;
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+}
+
+.notepad {
+    background-color: #202020;
+    border-radius: 10px 0 0 10px;
+    padding: 20px;
+    flex: 1;
+}
+
+.notepad h2 {
+    font-size: medium;
+    margin: 50;
+    color: #ffffff;
+}
+
+textarea {
+    width: 100%;
+    height: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.calculator-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+}
+
+.display {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#display {
+    background-color: #e4e4e4;
+    width: 90%;
+    padding: 15.9px;
+    font-size: 24px;
+    border: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    background-color: #0091ff;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button.backspace {
+    background-color: #d400ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button.backspace:hover{
+    background-color: red;
+}
+
+button.red {
+    background-color: #FF5733;
+}
+
+button.red:hover{
+    background-color: green;
+}
+
+button:hover {
+    background-color: #ffcc00;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* history */
+
+.history {
+    background-color: #202020;
+    border: 10px solid #444;
+    border-radius: 5px;
+    padding: 30px;
+    display: inline;
+    overflow-y: auto; /* Add a scrollbar if the content overflows */
+}
+
+.history h2 {
+    font-size: medium;
+    color: #ffffff;
+    margin: 0 0 20px; /* Adjust margin to create separation from the notepad section */
+}
+
+ul#history-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#history-list li {
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 0;
+    border-bottom: 1px solid #555;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .calculator {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .notepad {
+        border-radius: 10px;
+    }
+
+    .history {
+        border-radius: 10px;
+    }
+}
+
+/* Style for the "Copy" button */
+#copyButton {
+    position: relative;
+    top: 50px;
+    margin-top: 60px;
+    background-color: #ff5e00;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+#copyButton:hover {
+    background-color: #ff00bf;
+}
+
+/* Style for the "Whatsapp" button */
+.whatsapp-button {
+    text-align: justify;
+    margin-top: 70px;
+}
+
+.whatsapp-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.whatsapp-button a:hover {
+    background-color: #25d366; 
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .whatsapp-button {
+        text-align: center;
+    }
+}
+
+/* Style for the "Telegram" button */
+.telegram-button {
+    text-align: justify;
+    margin-top: 20px;
+}
+
+.telegram-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(31, 4, 230);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.telegram-button a:hover {
+    background-color: #3ca3fd; 
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .telegram-button {
+        text-align: center;
+    }
+}
+
+/* print button */
+
+#printButton {
+    text-align: justify;
+    margin-top: 20px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+#printButton:hover {
+    background-color: #ff4b4b;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    /* Your existing media query styles */
+
+    /* Additional styles for the "Print" button */
+    #printButton {
+        margin-top: 10px; /* Adjust the margin as needed */
+    }
+}
+
